@@ -1,0 +1,69 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Expense Analysis</h1>
+
+    <!-- Forma për filtrimin e muajve -->
+    <form action="" method="GET">
+        <select name="selected_month">
+            {% for month in months %}
+                <option value="{{ month }}" {% if month == selected_month %} selected {% endif %}>{{ month }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+
+    <!-- Grafiku për shpenzimet ditore -->
+    <div id="graph-container">
+        {{ graph_html | safe }}
+    </div>
+
+    <!-- Tabela për shpenzimet ditore -->
+    <div id="table-container">
+        <h2>Daily Expenses for Month {{ selected_month }}</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Shuma</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for expense in expenses %}
+            <tr>
+              <td>{{ expense.date }}</td>
+              <td>{{ expense.amount }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        
+    </div>
+
+    <!-- Forma për shtimin e shpenzimeve -->
+    <h2>Add Expense</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" min="0" step="0.01" required><br><br>
+
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required><br><br>
+
+        <button type="submit">Add Expense</button>
+    </form>
+
+</body>
+</html>

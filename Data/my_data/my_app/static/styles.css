@@ -1,0 +1,73 @@
+/* styles.css */
+
+/* Stili për titullin */
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Stili për formën */
+form {
+    margin-bottom: 20px;
+}
+
+/* Stili për etiketat e formës */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Stili për inputet e formës */
+input[type="date"],
+input[type="number"],
+input[type="text"],
+button {
+    margin-bottom: 10px;
+}
+
+/* Stili për butonin e formës */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Stili për tabelën */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Stili për rreshtat e tabelës */
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Stili për rreshtat e tabelës */
+table th {
+    background-color: #f2f2f2;
+}
+
+/* Stili për butonat e fshirjes */
+.delete-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
